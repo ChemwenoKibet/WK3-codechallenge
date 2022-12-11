@@ -1,13 +1,11 @@
-function getDisplayFilm(){
-    //fetch film info
-    fetch('http://localhost:3000/films')
-    .then((res) => res.json())
-    .then(renderFirstMovie) //hoisted function
-    
-}
-getDisplayFilm()
+//fetch data
+fetch("http://localhost:3000/films")
+.then((response) => response.json())
+.then((data) => {
+    const firstFilm = data.find((obj) => obj.id == 1);
+    //console.log(firstFilm);
 
-function renderFirstMovie(firstMovie){
-    firstMovie.find(((element) => element.id === "1"))
-    firstFilm(firstMovie.find(((element) => element.id === "1")))
-}
+    //display the poster
+    const posterDiv = document.getElementById("moviePoster");
+    let imageElement = document.createElement("img");
+})
