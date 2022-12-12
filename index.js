@@ -20,7 +20,7 @@ fetch("http://localhost:3000/films")
     let paraTitle = document.createElement("p")
     let paraRuntime = document.createElement("p")
 
-    paraTitle.innerText = firstFilm.titile;
+    paraTitle.innerText = firstFilm.title;
     paraRuntime.innerText = `${firstFilm.runtime} minutes`;
     titleAndRuntime.appendChild(paraTitle);
     titleAndRuntime.appendChild(paraRuntime);
