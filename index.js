@@ -58,3 +58,24 @@ fetch("http://localhost:3000/films")
         }
     });
 });
+
+
+function getFilms(){
+    fetch("http://localhost:3000/films")
+    .then((response) => response.json())
+    .then(renderFilms);
+}
+getFilms();
+
+function renderFilms(films){
+    films.forEach(filmDetails)
+}
+
+function filmDetails(details){
+    const titlesElement = document.getElementById("titles");
+
+    let listElement = document.getElementById("li");
+    listElement.innerText = details.title;
+
+    titlesElement.appendChild(listElement);
+}
