@@ -5,11 +5,10 @@
 ### Description
 This code makes sure that the user can:
 
-1. See a list of all animal names when the code is run on the browser.
-2. Be able to view character image when the name is clicked.
-3. Be able to view votes of every individual character.
-4. Be able to add votes of every individual character.
-5. Be able to reset the votes of every individual characters.
+1. See the first movie's details, including its poster, title, runtime, showtime, and available tickets when the page loads.
+2. The number of available tickets.
+3. See a menu of all movies on the left side of the page when page loads. 
+4. Buy a ticket for a movie.
 
 ## Sources
 
