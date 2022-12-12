@@ -28,4 +28,6 @@ fetch("http://localhost:3000/films")
     const moreDetails = document.getElementById("moreDetails");
     let paraDescription = document.createElement("p");
     let showtimeBtn = document.createElement("button");
+
+    let remTickets = firstFilm.capacity - firstFilm.tickets_sold;
 })
