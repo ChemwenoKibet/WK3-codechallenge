@@ -30,4 +30,10 @@ fetch("http://localhost:3000/films")
     let showtimeBtn = document.createElement("button");
 
     let remTickets = firstFilm.capacity - firstFilm.tickets_sold;
+
+    let spanElement = document.createElement("span");
+    let ticketBtn = document.createElement("button");
+    let breakEle = document.createElement("br");
+
+    
 })
