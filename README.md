@@ -1,6 +1,6 @@
 # WK3-codechallenge
 
-
+# FlatDango Movies
 
 ### Description
 This code makes sure that the user can:

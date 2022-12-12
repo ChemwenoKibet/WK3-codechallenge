@@ -38,7 +38,7 @@ fetch("http://localhost:3000/films")
     showtimeBtn.innerText = firstFilm.showtime;
     paraDescription.innerText = firstFilm.description;
     spanElement.innerText = `${remTickets} remaining tickets`;
-    ticketBtn.innerText = "Buy ticket";
+    ticketBtn.innerText = "Buy tickets";
 
     moreDetails.appendChild(paraDescription);
     moreDetails.appendChild(showtimeBtn);
