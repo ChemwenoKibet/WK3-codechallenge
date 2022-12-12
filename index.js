@@ -35,5 +35,10 @@ fetch("http://localhost:3000/films")
     let ticketBtn = document.createElement("button");
     let breakEle = document.createElement("br");
 
+    showtimeBtn.innerText = firstFilm.showtime;
+    paraDescription.innerText = firstFilm.description;
+    spanElement.innerText = `${remTickets} remaining tickets`;
+    ticketBtn.innerText = "Buy ticket";
+
     
 })
