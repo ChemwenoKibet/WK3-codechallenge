@@ -40,5 +40,11 @@ fetch("http://localhost:3000/films")
     spanElement.innerText = `${remTickets} remaining tickets`;
     ticketBtn.innerText = "Buy ticket";
 
+    moreDetails.appendChild(paraDescription);
+    moreDetails.appendChild(showtimeBtn);
+    moreDetails.appendChild(spanElement);
+    moreDetails.appendChild(breakEle);
+    moreDetails.appendChild(ticketBtn);
+
     
 })
