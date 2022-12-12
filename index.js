@@ -46,5 +46,15 @@ fetch("http://localhost:3000/films")
     moreDetails.appendChild(breakEle);
     moreDetails.appendChild(ticketBtn);
 
-    
-})
+    ticketBtn.addEventListener("click", () => {
+        if (remTickets === 1){
+            
+            ticketBtn.innerText = "SOLD OUT";
+            spanElement.innerText = ``;
+        }else{
+            --remTickets;
+
+            spanElement.innerText = `${remTickets} remaining tickets`;
+        }
+    });
+});
