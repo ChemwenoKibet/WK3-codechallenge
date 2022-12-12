@@ -24,4 +24,8 @@ fetch("http://localhost:3000/films")
     paraRuntime.innerText = `${firstFilm.runtime} minutes`;
     titleAndRuntime.appendChild(paraTitle);
     titleAndRuntime.appendChild(paraRuntime);
+
+    const moreDetails = document.getElementById("moreDetails");
+    let paraDescription = document.createElement("p");
+    let showtimeBtn = document.createElement("button");
 })
