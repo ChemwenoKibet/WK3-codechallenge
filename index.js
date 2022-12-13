@@ -1,7 +1,7 @@
-//fetch data
+// fetch data
 fetch("http://localhost:3000/films")
-.then((response) => response.json())
-.then((data) => {
+  .then((response) => response.json())
+  .then((data) => {
     const firstFilm = data.find((obj) => obj.id == 1);
     //console.log(firstFilm);
 
@@ -15,10 +15,10 @@ fetch("http://localhost:3000/films")
     imageElement.height = "400";
     posterDiv.appendChild(imageElement);
 
-    //display first film
+    //display title of first film
     const titleAndRuntime = document.getElementById("titleAndRuntime");
-    let paraTitle = document.createElement("p")
-    let paraRuntime = document.createElement("p")
+    let paraTitle = document.createElement("p");
+    let paraRuntime = document.createElement("p");
 
     paraTitle.innerText = firstFilm.title;
     paraRuntime.innerText = `${firstFilm.runtime} minutes`;
@@ -29,7 +29,7 @@ fetch("http://localhost:3000/films")
     let paraDescription = document.createElement("p");
     let showtimeBtn = document.createElement("button");
 
-    let remTickets = firstFilm.capacity - firstFilm.tickets_sold; 
+    let remTickets = firstFilm.capacity - firstFilm.tickets_sold;
 
     let spanElement = document.createElement("span");
     let ticketBtn = document.createElement("button");
@@ -38,7 +38,7 @@ fetch("http://localhost:3000/films")
     showtimeBtn.innerText = firstFilm.showtime;
     paraDescription.innerText = firstFilm.description;
     spanElement.innerText = `${remTickets} remaining tickets`;
-    ticketBtn.innerText = "Buy tickets";
+    ticketBtn.innerText = "Buy ticket";
 
     moreDetails.appendChild(paraDescription);
     moreDetails.appendChild(showtimeBtn);
@@ -47,35 +47,15 @@ fetch("http://localhost:3000/films")
     moreDetails.appendChild(ticketBtn);
 
     ticketBtn.addEventListener("click", () => {
-        if (remTickets === 1){
-            
-            ticketBtn.innerText = "SOLD OUT";
-            spanElement.innerText = ``;
-        }else{
-            --remTickets;
-
-            spanElement.innerText = `${remTickets} remaining tickets`;
-        }
+      if (remTickets === 1) {
+        //alert('No more tickets')
+        ticketBtn.innerText = "SOLD OUT";
+        spanElement.innerText = ``;
+      } else {
+        --remTickets;
+        //console.log(remTickets);
+        spanElement.innerText = `${remTickets} remaining tickets`;
+      }
     });
-});
+  });
 
-
-function getFilms(){
-    fetch("http://localhost:3000/films")
-    .then((response) => response.json())
-    .then(renderFilms);
-}
-getFilms();
-
-function renderFilms(films){
-    films.forEach(filmDetails)
-}
-
-function filmDetails(details){
-    const titlesElement = document.getElementById("titles");
-
-    let listElement = document.getElementById("li");
-    listElement.innerText = details.title;
-
-    titlesElement.appendChild(listElement);
-}
