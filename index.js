@@ -1,83 +1,115 @@
-// fetch data
+// // Working solution
+// fetches info for the first film and displays it.
 fetch("http://localhost:3000/films")
-  .then((response) => response.json())
+  .then((res) => res.json())
   .then((data) => {
-    const firstFilm = data.find((obj) => obj.id == 1);
-    //console.log(firstFilm);
+    const object = data.find((obj) => obj.id == 1);
+    // console.log(object);
 
-    //display the poster
+    //displays first film poster
     const posterDiv = document.getElementById("moviePoster");
     let imageElement = document.createElement("img");
-
-    imageElement.src = firstFilm.poster;
-    imageElement.alt = "Poster image";
+    imageElement.src = object.poster;
+    imageElement.alt = "Film poster";
+    imageElement.class = "d-inline-block align-text-top";
     imageElement.width = "300";
     imageElement.height = "400";
     posterDiv.appendChild(imageElement);
 
-    //display title of first film
-    const titleAndRuntime = document.getElementById("titleAndRuntime");
-    let paraTitle = document.createElement("p");
-    let paraRuntime = document.createElement("p");
+    // displays title of first film
+    const titleAndRuntimeDiv = document.getElementById("titleAndRuntime");
+    let paraElement = document.createElement("p");
 
-    paraTitle.innerText = firstFilm.title;
-    paraRuntime.innerText = `${firstFilm.runtime} minutes`;
-    titleAndRuntime.appendChild(paraTitle);
-    titleAndRuntime.appendChild(paraRuntime);
+    paraElement.innerText = object.title;
+    paraElement.class = "movie-title text-white";
+    titleAndRuntimeDiv.appendChild(paraElement);
 
-    const moreDetails = document.getElementById("moreDetails");
-    let paraDescription = document.createElement("p");
+    // displays runtime of first film
+    let paraElementTwo = document.createElement("p");
+
+    paraElementTwo.innerText = `Runtime: ${object.runtime} minutes`;
+    paraElementTwo.class = "time text-info";
+    titleAndRuntimeDiv.appendChild(paraElementTwo);
+
+    //displays description of film
+    const detailsDiv = document.getElementById("moreDetails");
+    let paraElementThree = document.createElement("p");
+
+    paraElementThree.innerText = `Description: ${object.description}`;
+    paraElementThree.class = "description";
+    detailsDiv.appendChild(paraElementThree);
+
+    //displays showtime of film
     let showtimeBtn = document.createElement("button");
 
-    let remTickets = firstFilm.capacity - firstFilm.tickets_sold;
+    showtimeBtn.innerText = `${object.showtime}`;
+    showtimeBtn.class = "btn btn-outline-secondary";
+    showtimeBtn.style.color = "green";
+    showtimeBtn.type = "button";
+    detailsDiv.appendChild(showtimeBtn);
 
-    let spanElement = document.createElement("span");
+    // displays available tickets tickets
+
+    let availableTickets = object.capacity - object.tickets_sold;
+    // console.log(availableTickets);
+
+    let availTicketSpan = document.createElement("span");
+
+    availTicketSpan.innerText = `${availableTickets} remaining minutes`;
+    detailsDiv.appendChild(availTicketSpan);
+
+    let breakElement = document.createElement("br");
+    detailsDiv.appendChild(breakElement);
+    detailsDiv.appendChild(breakElement);
+
+    // button for buying ticket
     let ticketBtn = document.createElement("button");
-    let breakEle = document.createElement("br");
 
-    showtimeBtn.innerText = firstFilm.showtime;
-    paraDescription.innerText = firstFilm.description;
-    spanElement.innerText = `${remTickets} remaining tickets`;
-    ticketBtn.innerText = "Buy ticket";
+    ticketBtn.innerText = "Buy Tickets";
+    ticketBtn.id = "ticketBtn";
+    ticketBtn.class = "btn btn-success";
+    ticketBtn.type = "button";
+    detailsDiv.appendChild(ticketBtn);
 
-    moreDetails.appendChild(paraDescription);
-    moreDetails.appendChild(showtimeBtn);
-    moreDetails.appendChild(spanElement);
-    moreDetails.appendChild(breakEle);
-    moreDetails.appendChild(ticketBtn);
+    // event listener
+    // when you click on ticketBtn, the available tickets values ought to decrease to zero.
+    // added an alert to notify user that there are no more tickets when the tickets = 0
 
     ticketBtn.addEventListener("click", () => {
-      if (remTickets === 1) {
-        //alert('No more tickets')
+      if (availableTickets === 1) {
+        //alert("No more tickets available");
         ticketBtn.innerText = "SOLD OUT";
-        spanElement.innerText = ``;
+        availTicketSpan.innerText = "";
+
       } else {
-        --remTickets;
-        //console.log(remTickets);
-        spanElement.innerText = `${remTickets} remaining tickets`;
+        --availableTickets;
+        
+        availTicketSpan.innerText = `${availableTickets} remaining minutes`;
       }
     });
   });
-function getMovies(){
-    //fetch data
-    fetch('http://localhost:3000/films')
+
+//--------------------------------------------------------------------------------------------------//
+// Second deliverable.
+// access the required endpoints
+function getMovies() {
+  // fetch data
+  fetch("http://localhost:3000/films")
     .then((resp) => resp.json())
-    .then(renderMovies)
+    .then(renderMovies);
 }
 getMovies();
 
-  // render movies
-
-function renderMovies(movies){
-    movies.forEach(movieDetails);
+// render all movies
+function renderMovies(movies) {
+  movies.forEach(movieDetails);
 }
 
-
-//display list of movies
+// displays the full list of movies from our endpoint on the left side
 const listElement = document.getElementById("titles");
 
-function movieDetails(films){
-    let li = document.createElement("li");
-    li.innerText = films.title;
-    listElement.appendChild(li);
+function movieDetails(films) {
+  let li = document.createElement("li");
+  li.innerText = films.title;
+  listElement.appendChild(li);
 }

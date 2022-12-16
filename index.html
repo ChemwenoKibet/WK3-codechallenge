@@ -1,63 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet " href="style.css" />
-  <title>Flatdango</title>
-</head>
-<body>
-  <!-- Section for nav bar -->
-  <section>
-    <nav class="navbar bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img
-            src="ticketlogo.png"
-            alt="Logo"
-            width="100"
-            height="100"
-            class="d-inline-block align-text-top"
-          />
-          BUY ALL YOUR LATEST MOVIE TICKETS HERE!
-        </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>Flatdango</title>
+  </head>
+  <body>
+    <!-- Section for navigation bar -->
+    <section>
+      <nav class="navbar bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img
+              src="./assets/ticket-logo.png"
+              alt="Logo"
+              width="50"
+              height="50"
+              class="d-inline-block align-text-top"
+            />
+            FLATDANGO: Your one stop shop for all movie tickets
+          </a>
+        </div>
+      </nav>
+    </section>
+
+    <!-- Section for Movies, details and ticketing -->
+
+    <section id="movieDetails" class="movie-details d-flex">
+      <!-- first div  with all movie titles-->
+      <div id="movieTitles" class="movie-titles p-2 flex-fill">
+        <ul id="titles" class="titles">
+          <!-- destination full list of movies here -->
+        </ul>
       </div>
-    </nav>
-  </section>
 
-  <!-- Section for Movies, details and tickets -->
-
-  <section id="movieDetails" class="movie-details d-flex">
-    <!-- first div  with all movie details-->
-
-    <div id="movieTitles" class="movie-titles p-2 flex-fill">
-      <ul id="titles" class="titles">
-        <!-- full list of movies here  -->
-      </ul>
-    </div>
-
-    <!-- second div with clicked movie poster -->
-    <div id="moviePoster" class="movie-poster p-2 flex-fill">
-      <!-- insert first film poster here -->
-    </div>
-
-    <!-- third div with details of selected movie and ticketing info etc. -->
-    <div id="tickets" class="tickets p-2 flex-fill">
-      <div id="titleAndRuntime" class="p-3 mb-2 bg-primary">
-        <!-- insert title info here -->
-        <!-- insert runtime info here -->
+      <!-- second div with clicked/selected/first movie poster -->
+      <div id="moviePoster" class="movie-poster p-2 flex-fill">
+        <!-- insert first film poster here -->
       </div>
-      <div id="moreDetails" class="more-details">
-        <!-- insert description here -->
-        <!-- insert button for showtime here -->
-        <!-- insert span content to display remaining tickets here-->
-        <!-- insert button for buying tickets here -->
+
+      <!-- third div with details of selected movie and ticketing info etc. -->
+      <div id="tickets" class="tickets p-2 flex-fill">
+        <div id="titleAndRuntime" class="p-3 mb-2 bg-primary">
+          <!-- insert title info here -->
+          <!-- insert runtime info here -->
+        </div>
+        <div id="moreDetails" class="more-details">
+          <!-- insert description here DONE-->
+          <!-- insert button for showtime here DONE-->
+          <!-- insert span content to display remaining tickets here -->
+          <!-- insert button for buying tickets here -->
+        </div>
       </div>
-    </div>
-  </section>
-
-
-</body>
-<script src="index.js"></script>
+    </section>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"
+  ></script>
+  <script src="./index.js"></script>
+  <!-- <script src="test.js"></script> -->
 </html>
